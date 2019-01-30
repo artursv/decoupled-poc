@@ -1,0 +1,86 @@
+{
+    "name": "Wundertools Drupal 8",
+    "description": "Wundertools Drupal 8 Composer Project Template",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
+        "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal/console": "^1.0.2",
+        "drupal/core": "~8.4",
+        "drush/drush": "^9.0.0",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
+        "drupal/config_installer": "~1.0",
+        "drupal/warden": "*",
+        "drupal/simplei": "^1.0",
+        "drupal/memcache": "^2.0@alpha",
+        "drupal/imagemagick": "^2.3",
+        "wunderio/drupal-ping": "^1.0",
+        "machbarmacher/gdpr-dump": "dev-master",
+        "drupal/devel": "^1.2",
+        "drupal/jsonapi": "^1.24",
+        "drupal/elasticsearch_helper": "6.x-dev",
+        "drupal/graphql": "^3.0@RC"
+    },
+    "require-dev": {
+        "guncha25/drupal-codeception": "^8"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "config": {
+        "discard-changes": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "composer-exit-on-patch-failure": true,
+        "dropin-paths": {
+            "web/": ["type:web-dropin"]
+        },
+        "patches": {
+        }
+    }
+}

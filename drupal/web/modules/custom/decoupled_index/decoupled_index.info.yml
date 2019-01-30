@@ -1,0 +1,6 @@
+name: Decoupled index
+type: module
+description: Main content index
+core: 8.x
+dependencies:
+- elasticsearch_helper

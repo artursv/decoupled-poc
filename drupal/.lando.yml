@@ -1,0 +1,70 @@
+name: wunderlando
+recipe: drupal8
+
+compose:
+  - compose.yml
+
+config:
+  webroot: web
+  via: nginx
+  php: '7.1'
+  database: mariadb:10.1
+  #xdebug: true
+
+tooling:
+  build.sh:
+    service: appserver
+    description: Execute build.sh
+    cmd:
+      - ./build.sh
+  codeception:
+    service: appserver
+    description: Run codeception
+    cmd:
+    - ./vendor/bin/codecept
+
+services:  
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  
+  appserver:
+    extras:
+      - "apt-get update -y"
+      - "apt-get install python-yaml -y"
+      # wkhtmltopdf setup
+      # - "[ -f /usr/bin/wkhtmltopdf ] || ( apt-get update -y && apt-get install xvfb -y)"
+      # - "[ -f /usr/bin/wkhtmltopdf ] || ( wget -nc https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.jessie_amd64.deb -P /tmp )"
+      # - "[ -e /usr/bin/wkhtmltopdf ] || ( dpkg -i /tmp/wkhtmltox_0.12.5-1.jessie_amd64.deb )"
+      # - "[ -f /usr/bin/wkhtmltopdf ] || ( ln -s /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf )"
+    overrides:
+      services:
+        environment:
+          WKV_SITE_ENV: lando
+          DB_PASS_DRUPAL: drupal8
+          DB_USER_DRUPAL: drupal8
+          DB_HOST_DRUPAL: database
+          DB_NAME_DRUPAL: drupal8
+          SITE_URL: 'https://nginx'
+
+  # Optional. Uncomment the following lines if Elasticsearch is required.
+  # elasticsearch:
+  #   type: elasticsearch:5.5
+
+proxy:
+  mailhog:
+    - mail.lndo.site
+  # Optional. Uncomment the following lines if Elasticsearch is required.
+  # elasticsearch:
+  #   - elasticsearch.lndo.site:9200
+
+events:
+  # Clear caches after a database import
+  post-db-import:
+    - appserver: cd $LANDO_WEBROOT && drush cr -y
+  # Enable Drush aliases.
+  post-start:
+    - appserver: mkdir -p $LANDO_MOUNT/.drush/site-aliases
+    - appserver: ln -sf /app/drush/wundertools.aliases.drushrc.php $LANDO_MOUNT/.drush/site-aliases/wundertools.aliases.drushrc.php
+    
