@@ -1,0 +1,14 @@
+uuid: 3bb03c62-cb61-492c-a02c-ad5432fabd94
+name: CMS
+mail: admin@example.com
+slogan: 'Your react app data source'
+page:
+  403: ''
+  404: ''
+  front: /admin/content
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
