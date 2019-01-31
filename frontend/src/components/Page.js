@@ -33,7 +33,7 @@ class Page extends Component {
                 <Actions id={id}/>
                 <Markup content={data.nodeById.body.processed}/>
               </div>
-            );
+            )
           }}
         </Query>
       </section>

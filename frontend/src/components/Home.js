@@ -19,6 +19,11 @@ query {
           processed
           summaryProcessed
         }
+        fieldImage {
+          alt
+          title
+          url
+        }
       }
     }
   }

@@ -28,7 +28,7 @@ class Navigation extends Component {
         {({ loading, error, data }) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error}`;
-          const linkList = data.menuByName.links.map((d) => <NavLink key={d.url.path} href={d.url.path}>{d.label}</NavLink>);
+          const linkList = data.menuByName.links.map((d) => <li><NavLink key={d.url.path} href={d.url.path}>{d.label}</NavLink></li>);
           return (
             <section>
               <Navbar bg='dark'>

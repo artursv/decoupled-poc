@@ -3,6 +3,7 @@ import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
 import Actions from './Actions'
 import { Markup } from 'interweave';
+import CardImg from './Teaser'
 
 const article = gql`
 query ($id: String!){
@@ -11,6 +12,11 @@ query ($id: String!){
       title,
       body {
         processed
+      }
+      fieldImage {
+        alt
+        title
+        url
       }
     }
   }
@@ -30,10 +36,18 @@ class Article extends Component {
             return (
               <div>
                 <h1>{data.nodeById.title}</h1>
+                {(() => {
+                  if (data.nodeById.fieldImage != null) {
+                   return ( <div>
+                      <img src={data.nodeById.fieldImage.url} alt={data.nodeById.fieldImage.alt} className="img-fluid" />
+                    </div>
+                   )
+                  }
+                })()}
                 <Actions id={id}/>
                   <Markup content={data.nodeById.body.processed}/>
               </div>
-            );
+            )
           }}
         </Query>
       </section>
