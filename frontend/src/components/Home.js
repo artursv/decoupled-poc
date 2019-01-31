@@ -17,6 +17,7 @@ query {
         }
         body {
           processed
+          summaryProcessed
         }
       }
     }
@@ -36,7 +37,9 @@ class Home extends Component {
           return (
             <div className={'container'}>
               <Header/>
-              {teaserList}
+              <div className={'main-content'} id={'main-content'}>
+                {teaserList}
+              </div>
               <Footer/>
             </div>
             )

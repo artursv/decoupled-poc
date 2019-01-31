@@ -11,13 +11,13 @@ class Teaser extends Component {
     const article = this.props.content
     return(
       <article>
-        <Card>
+        <Card style={{ marginBottom: '1rem' }}>
           <CardBody>
             <CardTitle>
               <h3>{article.title}</h3>
             </CardTitle>
             <CardText>
-              <Markup content={article.body.processed}/>
+              <Markup content={article.body.summaryProcessed}/>
             </CardText>
             <a type={'button'} className={'btn btn-outline-primary'} href={article.entityUrl.path}>Read more</a>
           </CardBody>
