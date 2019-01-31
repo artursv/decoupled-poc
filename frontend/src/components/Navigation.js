@@ -28,7 +28,6 @@ class Navigation extends Component {
         {({ loading, error, data }) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error}`;
-          console.log(data)
           const linkList = data.menuByName.links.map((d) => <NavLink key={d.url.path} href={d.url.path}>{d.label}</NavLink>);
           return (
             <section>

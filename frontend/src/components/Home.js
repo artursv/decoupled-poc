@@ -1,15 +1,47 @@
 import React, { Component } from 'react';
 import Header from './Header'
 import Footer from './Footer'
+import { gql } from 'apollo-boost'
+import Query from 'react-apollo/Query'
+import Teaser from './Teaser'
+
+const ARTICLE_QUERY = gql`
+query {
+  nodeQuery(limit: 10, offset: 0, filter: {conditions: [{operator: EQUAL, field: "type", value: ["article"]}]}) {    entities {
+      ... on NodeArticle {
+        nid
+        title
+        entityUrl {
+          path
+          routed
+        }
+        body {
+          processed
+        }
+      }
+    }
+  }
+}`
 
 class Home extends Component {
   render() {
     return(
-      <div className={'container'}>
-        <Header/>
-        <p>Hello world</p>
-        <Footer/>
-      </div>
+      <Query query={ARTICLE_QUERY}>
+        {({data, loading, error}) => {
+          if (loading) return 'Loading...';
+          if (error) return `Error! ${error}`;
+          const teaserList = data.nodeQuery.entities.map((d) => <Teaser content={d}/>);
+
+          console.log(data)
+          return (
+            <div className={'container'}>
+              <Header/>
+              {teaserList}
+              <Footer/>
+            </div>
+            )
+        }}
+      </Query>
     )
   }
 }
