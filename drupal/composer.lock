@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b06c443985f95c56d32643af49f09d2a",
+    "content-hash": "8234012a76ab7cdb3eaac915fad84ab1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -155,24 +155,24 @@
         },
         {
             "name": "chi-teck/drupal-code-generator",
-            "version": "1.27.0",
+            "version": "1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Chi-teck/drupal-code-generator.git",
-                "reference": "a839bc89d385087d8a7a96a9c1c4bd470ffb627e"
+                "reference": "a43131309b56a4c1874f39a9eaa4f6cb1a9832cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Chi-teck/drupal-code-generator/zipball/a839bc89d385087d8a7a96a9c1c4bd470ffb627e",
-                "reference": "a839bc89d385087d8a7a96a9c1c4bd470ffb627e",
+                "url": "https://api.github.com/repos/Chi-teck/drupal-code-generator/zipball/a43131309b56a4c1874f39a9eaa4f6cb1a9832cd",
+                "reference": "a43131309b56a4c1874f39a9eaa4f6cb1a9832cd",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": ">=5.5.9",
-                "symfony/console": "~2.7|^3",
-                "symfony/filesystem": "~2.7|^3",
-                "twig/twig": "^1.23.1"
+                "symfony/console": "^3.4 || ^4.0",
+                "symfony/filesystem": "^3.4 || ^4.0",
+                "twig/twig": "^1.35"
             },
             "bin": [
                 "bin/dcg"
@@ -196,7 +196,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal code generator",
-            "time": "2018-10-11T08:05:59+00:00"
+            "time": "2019-01-30T10:34:16+00:00"
         },
         {
             "name": "composer/installers",
@@ -2485,7 +2485,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/elasticsearch_helper",
-                "reference": "3e1c969a6d29ba1dafd0d7ddfef63c058f20b733"
+                "reference": "82f270a88c54b0e6bae7f0b7451bb13560cb5592"
             },
             "require": {
                 "drupal/core": "*",
@@ -2505,7 +2505,7 @@
                 },
                 "drupal": {
                     "version": "8.x-6.x-dev",
-                    "datestamp": "1537174380",
+                    "datestamp": "1548080580",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2541,7 +2541,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/elasticsearch_helper"
             },
-            "time": "2019-01-21T14:21:20+00:00"
+            "time": "2019-01-29T10:09:28+00:00"
         },
         {
             "name": "drupal/file_mdm",
@@ -6952,22 +6952,24 @@
         },
         {
             "name": "zendframework/zend-feed",
-            "version": "2.10.3",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-feed.git",
-                "reference": "6641f4cf3f4586c63f83fd70b6d19966025c8888"
+                "reference": "5248e9fffa760e5c36092aeff02c3797e4a8a690"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/6641f4cf3f4586c63f83fd70b6d19966025c8888",
-                "reference": "6641f4cf3f4586c63f83fd70b6d19966025c8888",
+                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/5248e9fffa760e5c36092aeff02c3797e4a8a690",
+                "reference": "5248e9fffa760e5c36092aeff02c3797e4a8a690",
                 "shasum": ""
             },
             "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*",
                 "php": "^5.6 || ^7.0",
                 "zendframework/zend-escaper": "^2.5.2",
-                "zendframework/zend-stdlib": "^2.7.7 || ^3.1"
+                "zendframework/zend-stdlib": "^3.2.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.7.23 || ^6.4.3",
@@ -6990,8 +6992,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.10.x-dev",
-                    "dev-develop": "2.11.x-dev"
+                    "dev-master": "2.11.x-dev",
+                    "dev-develop": "2.12.x-dev"
                 }
             },
             "autoload": {
@@ -7009,7 +7011,7 @@
                 "feed",
                 "zf"
             ],
-            "time": "2018-08-01T13:53:20+00:00"
+            "time": "2019-01-29T21:37:15+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",

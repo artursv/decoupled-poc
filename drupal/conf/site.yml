@@ -27,29 +27,28 @@ default:
       - shell: composer drupal-scaffold
 
     reset:
-      - verify: "Type yes to verify you want to reset your local environment: "
+      - verify: "Type yes to verify you want to reset your environment: "
       - make
-      - drush: site-install config_installer
+      - drush: sql-drop --yes
+      - shell: gunzip < drupal-db.gz | drush sqlc
+      - drush: updb -y
+      - drush: cim -y
+      - drush: entup -y
+      - drush: cron
       - cleanup
 
-    # Basic site update functionality
     update:
-      - backup:
-         ignore:
-          - builds
       - make
       - drush: updb -y
-      - drush: cr
       - drush: cim -y
+      - drush: entup -y
+      - drush: cron
       - cleanup
-      - shell:
-        - vendor/bin/codecept clean
-        - vendor/bin/codecept run
 
     test:
       - shell:
-        - vendor/bin/codecept clean
-        - vendor/bin/codecept run
+          - if [ -d tests/_log ]; then vendor/bin/codecept clean; fi
+          - vendor/bin/codecept run
 
 # Allow doing minimal builds first in Travis CI
 # These can then be deployed to servers

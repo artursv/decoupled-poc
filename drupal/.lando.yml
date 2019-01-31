@@ -1,4 +1,4 @@
-name: wunderlando
+name: decoupled
 recipe: drupal8
 
 compose:
@@ -21,23 +21,20 @@ tooling:
     service: appserver
     description: Run codeception
     cmd:
-    - ./vendor/bin/codecept
+      - ./vendor/bin/codecept
 
-services:  
+services:
   mailhog:
     type: mailhog
     hogfrom:
       - appserver
-  
+
   appserver:
     extras:
       - "apt-get update -y"
       - "apt-get install python-yaml -y"
-      # wkhtmltopdf setup
-      # - "[ -f /usr/bin/wkhtmltopdf ] || ( apt-get update -y && apt-get install xvfb -y)"
-      # - "[ -f /usr/bin/wkhtmltopdf ] || ( wget -nc https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.jessie_amd64.deb -P /tmp )"
-      # - "[ -e /usr/bin/wkhtmltopdf ] || ( dpkg -i /tmp/wkhtmltox_0.12.5-1.jessie_amd64.deb )"
-      # - "[ -f /usr/bin/wkhtmltopdf ] || ( ln -s /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf )"
+      #      Rebuild and restart to remove xdebug
+      - "rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
     overrides:
       services:
         environment:
@@ -46,11 +43,15 @@ services:
           DB_USER_DRUPAL: drupal8
           DB_HOST_DRUPAL: database
           DB_NAME_DRUPAL: drupal8
-          SITE_URL: 'https://nginx'
+          SITE_URL: 'https://decoupled.lndo.site'
 
-  # Optional. Uncomment the following lines if Elasticsearch is required.
-  # elasticsearch:
-  #   type: elasticsearch:5.5
+  elasticsearch:
+    type: compose
+    services:
+      image: blacktop/elasticsearch:6.4
+      command: /elastic-entrypoint.sh elasticsearch
+      ports:
+        - "9200:9200"
 
 proxy:
   mailhog:
@@ -63,8 +64,3 @@ events:
   # Clear caches after a database import
   post-db-import:
     - appserver: cd $LANDO_WEBROOT && drush cr -y
-  # Enable Drush aliases.
-  post-start:
-    - appserver: mkdir -p $LANDO_MOUNT/.drush/site-aliases
-    - appserver: ln -sf /app/drush/wundertools.aliases.drushrc.php $LANDO_MOUNT/.drush/site-aliases/wundertools.aliases.drushrc.php
-    
