@@ -8,12 +8,10 @@ module:
   config: 0
   datetime: 0
   dblog: 0
-  decoupled_index: 0
   devel: 0
   devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
-  elasticsearch_helper_content: 0
   field: 0
   field_ui: 0
   file: 0
@@ -37,7 +35,6 @@ module:
   user: 0
   views_ui: 0
   menu_link_content: 1
-  elasticsearch_helper: 10
   views: 10
   standard: 1000
 theme:
