@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const articles = gql`
 query {
