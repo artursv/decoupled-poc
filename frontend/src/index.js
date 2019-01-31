@@ -6,7 +6,6 @@ import ApolloClient from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { HttpLink } from 'apollo-boost'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import App from './components/App'
 import Main from './components/Main';
 
 const cache = new InMemoryCache()
