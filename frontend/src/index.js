@@ -7,6 +7,7 @@ import { ApolloProvider } from 'react-apollo'
 import { HttpLink } from 'apollo-boost'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import App from './components/App'
+import Main from './components/Main';
 
 const cache = new InMemoryCache()
 
@@ -21,7 +22,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <Main />
   </ApolloProvider>,  document.getElementById('root')
 );
 
