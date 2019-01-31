@@ -17,7 +17,7 @@ class Main extends Component {
           console.log(data)
           const { nid, title } = data.route.entity
           return (
-            <div>
+            <div className={'container'}>
               <Header/>
               <Node title={title} />
               <Footer/>

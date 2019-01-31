@@ -3,7 +3,6 @@ import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const articles = gql`
 query {
   nodeQuery(limit: 10, offset: 0, filter: {conditions: [{operator: EQUAL, field: "type", value: ["article"]}]}) {    entities {
