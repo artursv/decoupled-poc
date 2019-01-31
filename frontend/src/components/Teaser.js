@@ -23,7 +23,7 @@ class Teaser extends Component {
             <CardTitle>
               <h3>{article.title}</h3>
             </CardTitle>
-            <CardText>
+            <CardText tag="div">
               <Markup content={article.body.summaryProcessed}/>
             </CardText>
             <a type={'button'} className={'btn btn-outline-primary'} href={article.entityUrl.path}>Read more</a>
