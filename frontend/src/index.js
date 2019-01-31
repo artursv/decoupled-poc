@@ -6,13 +6,13 @@ import ApolloClient from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { HttpLink } from 'apollo-boost'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import App from './components/App'
-import Main from './components/Main';
+
+import MainRouter from './components/MainRouter'
 
 const cache = new InMemoryCache()
 
 const httpLink = new HttpLink({
-  uri: 'http://decoupled.lndo.site/graphql',
+  uri: 'https://decoupled.lndo.site/graphql',
 });
 
 const client = new ApolloClient({
@@ -22,7 +22,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Main />
+    <MainRouter />
   </ApolloProvider>,  document.getElementById('root')
 );
 
