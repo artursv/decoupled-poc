@@ -6,6 +6,7 @@ import Header from './Header'
 import Footer from './Footer';
 import Node from './Node';
 import Article from './Article'
+import Page from './Page'
 
 class Main extends Component {
   render() {
@@ -17,13 +18,25 @@ class Main extends Component {
           if (error) return `Error! ${error}`;
           console.log(data)
           const { nid, title } = data.route.entity
-          return (
-            <div className={'container'}>
-              <Header/>
-              <Article title={title} id={data.route.entity.nid} />
-              <Footer/>
-            </div>
-          )
+          console.log(data.route.entity.entityBundle)
+          if (data.route.entity.entityBundle === 'page') {
+            return (
+              <div className={'container'}>
+                <Header/>
+                <Page title={title} id={data.route.entity.nid} />
+                <Footer/>
+              </div>
+            )
+          }
+          else {
+            return (
+              <div className={'container'}>
+                <Header/>
+                <Article title={title} id={data.route.entity.nid} />
+                <Footer/>
+              </div>
+            )
+          }
         }}
       </Query>
     )
@@ -38,6 +51,7 @@ const PAGE_QUERY = gql`
           ... on Node {
             nid
             title
+            entityBundle
           }
         }
       }

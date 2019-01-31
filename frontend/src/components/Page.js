@@ -7,7 +7,7 @@ import { Markup } from 'interweave';
 const article = gql`
 query ($id: String!){
   nodeById(id: $id) {
-    ...on NodeArticle {
+    ...on NodePage {
       title,
       body {
         processed
@@ -16,7 +16,7 @@ query ($id: String!){
   }
 }`
 
-class Article extends Component {
+class Page extends Component {
   render() {
     const id = this.props.id
     console.log(id)
@@ -31,7 +31,7 @@ class Article extends Component {
               <div>
                 <h1>{data.nodeById.title}</h1>
                 <Actions id={id}/>
-                  <Markup content={data.nodeById.body.processed}/>
+                <Markup content={data.nodeById.body.processed}/>
               </div>
             );
           }}
@@ -42,4 +42,4 @@ class Article extends Component {
 }
 
 
-export default Article
+export default Page

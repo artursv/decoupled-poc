@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Main from './Main'
+import Home from './Home'
 
 class MainRouter extends Component {
   render () {
@@ -13,6 +14,11 @@ class MainRouter extends Component {
             path="/:page"
             component={
               props => <Main {...props} />
+            }
+          />
+          <Route
+            path="/"
+            component={Home} />
             }
           />
         </Switch>
