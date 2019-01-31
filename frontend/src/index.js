@@ -11,7 +11,7 @@ import App from './components/App'
 const cache = new InMemoryCache()
 
 const httpLink = new HttpLink({
-  uri: 'http://local.decoupled.com:8080/graphql',
+  uri: 'http://decoupled.lndo.site/graphql',
 });
 
 const client = new ApolloClient({
