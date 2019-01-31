@@ -15,7 +15,7 @@ query {
   }
 }`
 
-const App = () => (
+const Node = () => (
   <Query query={articles}>
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
@@ -32,4 +32,4 @@ const App = () => (
   </Query>
 )
 
-export default App;
+export default Node;
