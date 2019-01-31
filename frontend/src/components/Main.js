@@ -4,7 +4,6 @@ import gql from 'graphql-tag'
 
 import Header from './Header'
 import Footer from './Footer';
-import Node from './Node';
 import Article from './Article'
 import Page from './Page'
 
@@ -13,10 +12,10 @@ class Main extends Component {
     const { pathname } = this.props.location
     return (
       <Query query={PAGE_QUERY} variables={{ pathname }}>
-        {({ loading, error, data }) => {console.log(error)
+        {({ loading, error, data }) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error}`;
-          console.log(data)
+
           const { nid, title } = data.route.entity
           console.log(data.route.entity.entityBundle)
           if (data.route.entity.entityBundle === 'page') {

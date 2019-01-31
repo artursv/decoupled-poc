@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { gql } from 'apollo-boost'
@@ -29,29 +29,27 @@ query {
   }
 }`
 
-class Home extends Component {
-  render() {
-    return(
-      <Query query={ARTICLE_QUERY}>
-        {({data, loading, error}) => {
-          if (loading) return 'Loading...';
-          if (error) return `Error! ${error}`;
-          const teaserList = data.nodeQuery.entities.map((d) => <Teaser content={d}/>);
+const Home = () => (
+  <Query query={ARTICLE_QUERY}>
+    {({data, loading, error}) => {
+      if (loading) return 'Loading...';
+      if (error) return `Error! ${error}`;
+      const teaserList = data.nodeQuery.entities.map(
+      (value, key) => <Teaser key={key} content={value}/>
+      );
 
-          console.log(data)
-          return (
-            <div className={'container'}>
-              <Header/>
-              <div className={'main-content'} id={'main-content'}>
-                {teaserList}
-              </div>
-              <Footer/>
-            </div>
-            )
-        }}
-      </Query>
-    )
-  }
-}
+      console.log(data)
+      return (
+        <div className={'container'}>
+          <Header/>
+          <div className={'main-content'} id={'main-content'}>
+            {teaserList}
+          </div>
+          <Footer/>
+        </div>
+        )
+    }}
+  </Query>
+)
 
 export default Home

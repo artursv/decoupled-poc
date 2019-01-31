@@ -7,6 +7,8 @@ import { ApolloProvider } from 'react-apollo'
 import { HttpLink } from 'apollo-boost'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import MainRouter from './components/MainRouter'
 
 const cache = new InMemoryCache()

@@ -28,12 +28,18 @@ class Navigation extends Component {
         {({ loading, error, data }) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error}`;
-          const linkList = data.menuByName.links.map((d) => <li><NavLink key={d.url.path} href={d.url.path}>{d.label}</NavLink></li>);
+          const linkList = data.menuByName.links.map((value, key) =>
+            <li key={key}>
+              <NavLink key={key} href={value.url.path}>
+                {value.label}
+              </NavLink>
+            </li>
+          )
           return (
             <section>
               <Navbar bg='dark'>
                 <Nav className="mr-auto">
-                  {linkList }
+                  {linkList}
                 </Nav>
               </Navbar>
             </section>
