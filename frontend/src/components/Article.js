@@ -3,8 +3,8 @@ import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
 
 const article = gql`
-query {
-  nodeById(id: "495") {
+query ($id: String!){
+  nodeById(id: $id) {
     ...on NodeArticle {
       title,
       body {
@@ -16,21 +16,27 @@ query {
 
 class Article extends Component {
   render() {
+    const id = this.props.id
+    console.log(id)
     return(
-      <Query query={article}>
-        {({ loading, error, data }) => {
-          if (loading) return 'Loading...';
-          if (error) return `Error! ${error}`;
-          return (
-            <div>
-              <h1>{data.nodeById.title}</h1>
-              {data.nodeById.body.processed}
-            </div>
-          );
-        }}
-      </Query>
+      <section>
+        <Query variables={{ id }} query={article}>
+          {({ loading, error, data }) => {
+            console.log(id)
+            if (loading) return 'Loading...';
+            if (error) return `Error! ${error}`;
+            return (
+              <div>
+                <h1>{data.nodeById.title}</h1>
+                {data.nodeById.body.processed}
+              </div>
+            );
+          }}
+        </Query>
+      </section>
     )
   }
 }
+
 
 export default Article

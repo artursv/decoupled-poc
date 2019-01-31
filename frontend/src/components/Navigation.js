@@ -7,16 +7,17 @@ import NavbarBrand from 'reactstrap/es/NavbarBrand'
 class Navigation extends Component {
   render() {
     return(
-      <Navbar bg="dark">
-        <NavbarBrand href="#home">Innovation day</NavbarBrand>
-        <Nav className="mr-auto">
-          <NavLink href="#home">Home</NavLink>
-          <NavLink href="#link">Link</NavLink>
-          <NavLink href="https://decoupled.lndo.site">Edit content</NavLink>
-        </Nav>
-      </Navbar>
+      <section>
+        <Navbar bg='dark'>
+          <NavbarBrand href="#home">Innovation day</NavbarBrand>
+          <Nav className="mr-auto">
+            <NavLink href="#home">Home</NavLink>
+            <NavLink href="#link">Link</NavLink>
+            <NavLink href="https://decoupled.lndo.site">Edit content</NavLink>
+          </Nav>
+        </Navbar>
+      </section>
     )
   }
 }
-
 export default Navigation

@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import Header from './Header'
 import Footer from './Footer';
 import Node from './Node';
+import Article from './Article'
 
 class Main extends Component {
   render() {
@@ -19,7 +20,7 @@ class Main extends Component {
           return (
             <div className={'container'}>
               <Header/>
-              <Node title={title} />
+              <Article title={title} id={data.route.entity.nid} />
               <Footer/>
             </div>
           )
