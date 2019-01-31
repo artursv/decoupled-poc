@@ -10,11 +10,11 @@
  */
 $databases = [];
 $databases['default']['default'] = [
-  'database' => 'decoupled',
-  'username' => 'decoupled',
-  'password' => 'decoupled',
+  'database' => 'drupal8',
+  'username' => 'drupal8',
+  'password' => 'drupal8',
   'prefix' => '',
-  'host' => '127.0.0.1',
+  'host' => 'database',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
@@ -113,6 +113,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 $settings['trusted_host_patterns'] = array(
   '^decoupled\.com$',
   '^.+\.decoupled\.com$',
+  '^decoupled\.lndo\.site$',
 );
 
 /**
