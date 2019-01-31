@@ -3,8 +3,8 @@ name: CMS
 mail: admin@example.com
 slogan: 'Your react app data source'
 page:
-  403: ''
-  404: ''
+  403: /user/login
+  404: /user/login
   front: /admin/content
 admin_compact_mode: false
 weight_select_max: 100

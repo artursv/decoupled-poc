@@ -1,0 +1,8 @@
+uuid: 602410c4-e98d-44af-8753-cf9940a59b88
+langcode: en
+status: true
+dependencies: {  }
+id: editor-links
+label: 'Editor links'
+description: 'Useful list of links for editor role'
+locked: false

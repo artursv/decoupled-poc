@@ -1,0 +1,26 @@
+uuid: 47c382fb-dbb1-47e9-9156-c9d3c46563c8
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor
+label: 'Content editor'
+weight: 3
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access user profiles'
+  - 'administer nodes'
+  - 'administer users'
+  - 'change own username'
+  - 'create article content'
+  - 'create page content'
+  - 'delete any article content'
+  - 'delete any page content'
+  - 'delete own article content'
+  - 'delete own page content'
+  - 'edit any article content'
+  - 'edit any page content'
+  - 'edit own article content'
+  - 'edit own page content'
+  - 'view own unpublished content'

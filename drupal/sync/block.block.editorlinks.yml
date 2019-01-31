@@ -1,0 +1,32 @@
+uuid: c793f9d6-703b-423a-8759-c49eb05cbd51
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.editor-links
+  module:
+    - system
+    - user
+  theme:
+    - seven
+id: editorlinks
+theme: seven
+region: header
+weight: -4
+provider: null
+plugin: 'system_menu_block:editor-links'
+settings:
+  id: 'system_menu_block:editor-links'
+  label: 'Editor navigation'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      content_editor: content_editor
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
