@@ -8,25 +8,23 @@ import CardImg from 'reactstrap/es/CardImg'
 
 class Teaser extends Component {
   render() {
-    console.log(this.props.content)
+    // console.log(this.props.content)
     const article = this.props.content
+    const { fieldImage, title, body, entityUrl } = article
     return(
       <article>
         <Card style={{ marginBottom: '1rem' }}>
-          {(() => {
-            if (article.fieldImage != null) {
-              console.log(article.fieldImage)
-              return <CardImg top width="100%" src={article.fieldImage.url} alt="Card image cap" />
-            }
-          })()}
+          {article && article.fieldImage &&
+            <CardImg top width="100%" src={fieldImage.url} alt="Card image cap" />
+          }
           <CardBody>
             <CardTitle>
-              <h3>{article.title}</h3>
+              <h3>{title}</h3>
             </CardTitle>
             <CardText tag="div">
-              <Markup content={article.body.summaryProcessed}/>
+              <Markup content={body.summaryProcessed}/>
             </CardText>
-            <a type={'button'} className={'btn btn-outline-primary'} href={article.entityUrl.path}>Read more</a>
+            <a type={'button'} className={'btn btn-outline-primary'} href={entityUrl.path}>Read more</a>
           </CardBody>
         </Card>
       </article>
