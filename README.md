@@ -11,12 +11,12 @@ React application with Drupal as datasource. This setup uses [GraphQL](https://w
 
 ### React
 
-  cd frontend
-  npm install
-  npm start
+    cd frontend
+    npm install
+    npm start
 
 ### Drupal
 
-  cd drupal
-  lando start
-  lando build.sh reset
+    cd drupal
+    lando start
+    lando build.sh reset
