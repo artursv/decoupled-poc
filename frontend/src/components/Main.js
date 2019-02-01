@@ -23,7 +23,9 @@ class Main extends Component {
             return (
               <div className={'container'}>
                 <Header/>
-                <Page title={title} id={data.route.entity.nid} />
+                <div role="main">
+                  <Page title={title} id={data.route.entity.nid} />
+                </div>
                 <Footer/>
               </div>
             )
@@ -35,7 +37,9 @@ class Main extends Component {
                   <title>{`${title} | Decoupled accessibility site`}</title>
                 </Helmet>
                 <Header/>
-                <Article title={title} id={data.route.entity.nid} />
+                  <div role="main">
+                    <Article title={title} id={data.route.entity.nid} />
+                  </div>
                 <Footer/>
               </div>
             )

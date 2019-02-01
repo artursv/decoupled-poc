@@ -5,6 +5,11 @@ import CardTitle from 'reactstrap/es/CardTitle'
 import CardText from 'reactstrap/es/CardText'
 import { Markup } from 'interweave'
 import CardImg from 'reactstrap/es/CardImg'
+import styled from 'styled-components';
+
+const Button = styled.a`
+  color: #000;
+`
 
 class Teaser extends Component {
   render() {
@@ -24,7 +29,7 @@ class Teaser extends Component {
             <CardText tag="div">
               <Markup content={body.summaryProcessed}/>
             </CardText>
-            <a type={'button'} className={'btn btn-outline-primary'} href={entityUrl.path}>Read more</a>
+            <Button type={'button'} className={'btn btn-outline-primary'} href={entityUrl.path}>Read more</Button>
           </CardBody>
         </Card>
       </article>

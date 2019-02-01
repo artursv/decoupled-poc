@@ -42,7 +42,8 @@ const Home = () => (
       return (
         <div className={'container'}>
           <Header/>
-          <div className={'main-content'} id={'main-content'}>
+          <div className={'main-content'} id={'main-content'} role="main">
+            <h1>List</h1>
             {teaserList}
           </div>
           <Footer/>
