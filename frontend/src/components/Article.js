@@ -27,7 +27,7 @@ class Article extends Component {
     const id = this.props.id
     console.log(id)
     return(
-      <section role="main">
+      <section role="main" id={'main-content'}>
         <Query variables={{ id }} query={article}>
           {({ loading, error, data }) => {
             console.log(id)

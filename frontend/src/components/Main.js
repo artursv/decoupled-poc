@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Article from './Article'
 import Page from './Page'
 import { Helmet } from "react-helmet";
+import SkipToContent from './SkipToContent'
 
 class Main extends Component {
   render() {
@@ -22,6 +23,10 @@ class Main extends Component {
           if (data.route.entity.entityBundle === 'page') {
             return (
               <div className={'container'}>
+                <Helmet>
+                  <title>{`${title} | Decoupled accessibility site`}</title>
+                </Helmet>
+                <SkipToContent/>
                 <Header/>
                 <Page title={title} id={data.route.entity.nid} />
                 <Footer/>
@@ -34,6 +39,7 @@ class Main extends Component {
                 <Helmet>
                   <title>{`${title} | Decoupled accessibility site`}</title>
                 </Helmet>
+                <SkipToContent/>
                 <Header/>
                 <Article title={title} id={data.route.entity.nid} />
                 <Footer/>
