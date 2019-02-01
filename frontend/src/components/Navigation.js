@@ -4,6 +4,11 @@ import Nav from 'reactstrap/es/Nav'
 import NavLink from 'reactstrap/es/NavLink'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
+import styled from 'styled-components';
+
+const NavLinkItem = styled.a`
+  color: #000;
+`
 
 const MENU_QUERY = gql`
 query {
@@ -30,9 +35,9 @@ class Navigation extends Component {
           if (error) return `Error! ${error}`;
           const linkList = data.menuByName.links.map((value, key) =>
             <li key={key}>
-              <NavLink key={key} href={value.url.path}>
+              <NavLinkItem key={key} href={value.url.path}>
                 {value.label}
-              </NavLink>
+              </NavLinkItem>
             </li>
           )
           return (

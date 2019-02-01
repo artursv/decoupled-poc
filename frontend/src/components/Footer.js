@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const FooterLink = styled.a`
+  color: #000;
+`
 
 class Footer extends Component {
   render() {
@@ -6,9 +11,10 @@ class Footer extends Component {
       <section>
         <footer className="page-footer font-small blue">
           <div className="footer-copyright text-center py-3">© 2019
-            <a href="https://wunder.io"> Wunder</a>
+            <FooterLink href="https://wunder.io"> Wunder</FooterLink>
           </div>
-        </footer>      </section>
+        </footer>
+      </section>
     )
   }
 }

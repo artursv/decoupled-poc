@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+
+const ActionLink = styled.a`
+  color: #000;
+`
 
 class Actions extends Component {
   render() {
     return(
       <section>
         <div className="btn-group" role="group" aria-label="Article administration actions">
-        <a type={'button'} className={'btn btn-primary'} href={"https://decoupled.lndo.site/node/"+ this.props.id +"/edit"}>Edit</a>
-        <a type={'button'} className={'btn btn-primary'} href={"https://decoupled.lndo.site/node/"+ this.props.id +"/delete"}>Delete</a>
+        <ActionLink type={'button'} className={'btn btn-primary'} href={"https://decoupled.lndo.site/node/"+ this.props.id +"/edit"}>Edit</ActionLink>
+        <ActionLink type={'button'} className={'btn btn-primary'} href={"https://decoupled.lndo.site/node/"+ this.props.id +"/delete"}>Delete</ActionLink>
         </div>
       </section>
     )
