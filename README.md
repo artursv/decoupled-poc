@@ -1,15 +1,22 @@
-# React/Drupal decoupled setup PoC\
+# Decoupled Drupal proof of concept
 
-@todo
+React application with Drupal as datasource. This setup uses [GraphQL](https://www.drupal.org/project/graphql) module to expose content to the React application. The main goal for creating this was to explore the potential pitfalls when building accessability focused React application.
+
+## Requirements
+
+- [npm](https://www.npmjs.com/get-npm)
+- [Lando](https://github.com/lando/lando)
 
 ## Setup
 
-@todo
+### React
+
+  cd frontend
+  npm install
+  npm start
 
 ### Drupal
 
-@todo
-
-### React
-
-@todo
+  cd drupal
+  lando start
+  lando build.sh reset
