@@ -2,9 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const SkipLink = styled.a`
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
+  left: 0;
+  position: absolute;
+  text-decoration: none;
+  top: -9999rem;
+
+  &:focus {
+    top: 0;
+  }
 `
 
 class SkipToContent extends Component {
