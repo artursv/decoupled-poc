@@ -21,7 +21,7 @@ class Page extends Component {
     const id = this.props.id
     console.log(id)
     return(
-      <section>
+      <section role="main" id={'main-content'}>
         <Query variables={{ id }} query={article}>
           {({ loading, error, data }) => {
             console.log(id)
