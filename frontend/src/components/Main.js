@@ -6,6 +6,7 @@ import Header from './Header'
 import Footer from './Footer';
 import Article from './Article'
 import Page from './Page'
+import { Helmet } from "react-helmet";
 
 class Main extends Component {
   render() {
@@ -30,6 +31,9 @@ class Main extends Component {
           else {
             return (
               <div className={'container'}>
+                <Helmet>
+                  <title>{`${title} | Decoupled accessibility site`}</title>
+                </Helmet>
                 <Header/>
                 <Article title={title} id={data.route.entity.nid} />
                 <Footer/>

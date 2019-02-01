@@ -9,7 +9,6 @@ class MainRouter extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          {/*<Route exact="/" component="" /> */}
           <Route
             path="/:page"
             component={
