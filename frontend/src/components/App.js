@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Main from './Main'
 import Home from './Home'
 
-class MainRouter extends Component {
+class App extends Component {
   render () {
     return (
       <BrowserRouter>
@@ -26,4 +26,4 @@ class MainRouter extends Component {
   }
 }
 
-export default MainRouter
+export default App

@@ -11,7 +11,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import MainRouter from './components/MainRouter'
+import App from './components/App'
 
 const cache = new InMemoryCache()
 
@@ -30,7 +30,7 @@ ReactDOM.render(
       <meta charSet="utf-8" />
       <title>Decoupled accessibility site</title>
     </Helmet>
-    <MainRouter />
+    <App />
   </ApolloProvider>,  document.getElementById('root')
 );
 
