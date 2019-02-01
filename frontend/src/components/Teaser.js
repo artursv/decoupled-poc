@@ -15,11 +15,11 @@ class Teaser extends Component {
       <article>
         <Card style={{ marginBottom: '1rem' }}>
           {article && article.fieldImage &&
-            <CardImg top width="100%" src={fieldImage.url} alt="Card image cap" />
+            <CardImg top width="100%" src={fieldImage.url} alt={fieldImage.alt} />
           }
           <CardBody>
             <CardTitle>
-              <h3>{title}</h3>
+              <h2>{title}</h2>
             </CardTitle>
             <CardText tag="div">
               <Markup content={body.summaryProcessed}/>
