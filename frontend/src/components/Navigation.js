@@ -7,7 +7,12 @@ import { Query } from 'react-apollo'
 import styled from 'styled-components';
 
 const NavLinkItem = styled.a`
-  color: #000;
+  color: #fff;
+`
+
+const NavigationBar = styled.div`
+  background: #000;
+  padding: 5px 10px;
 `
 
 const MENU_QUERY = gql`
@@ -42,11 +47,11 @@ class Navigation extends Component {
           )
           return (
             <section>
-              <Navbar bg='dark'>
+              <NavigationBar>
                 <Nav className="mr-auto">
                   {linkList}
                 </Nav>
-              </Navbar>
+              </NavigationBar>
             </section>
           )
         }}
