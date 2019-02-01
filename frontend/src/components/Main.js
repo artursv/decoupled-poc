@@ -19,37 +19,19 @@ class Main extends Component {
           if (error) return `Error! ${error}`;
 
           const { nid, title } = data.route.entity
-          console.log(data.route.entity.entityBundle)
-          if (data.route.entity.entityBundle === 'page') {
-            return (
-              <div className={'container'}>
-                <Helmet>
-                  <title>{`${title} | Decoupled accessibility site`}</title>
-                </Helmet>
-                <SkipToContent/>
-                <Header/>
-                <div role="main">
-                  <Page title={title} id={data.route.entity.nid} />
-                </div>
-                <Footer/>
+          return (
+            <div className={'container'}>
+              <Helmet>
+                <title>{`${title} | Decoupled accessibility site`}</title>
+              </Helmet>
+              <SkipToContent/>
+              <Header/>
+              <div role="main">
+                {data.route.entity.entityBundle === 'page' ? <Page title={title} id={data.route.entity.nid} /> : <Article title={title} id={data.route.entity.nid} />}
               </div>
-            )
-          }
-          else {
-            return (
-              <div className={'container'}>
-                <Helmet>
-                  <title>{`${title} | Decoupled accessibility site`}</title>
-                </Helmet>
-                <SkipToContent/>
-                <Header/>
-                  <div role="main">
-                    <Article title={title} id={data.route.entity.nid} />
-                  </div>
-                <Footer/>
-              </div>
-            )
-          }
+              <Footer/>
+            </div>
+          )
         }}
       </Query>
     )
