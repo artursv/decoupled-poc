@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 const NavLinkItem = styled.a`
   color: #fff;
+  padding: 5px 10px;
 `
 
 const NavigationBar = styled.div`
